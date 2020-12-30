@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      <img src="assets/images/logo.png" height="20px" width="20px"/>
+      <ion-label style="font-size: 20px;">&nbsp;{{ appName }}</ion-label>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Nuevo Ticket</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Cantidad (mL)</ion-label>
+        <ion-input
+          type="number"
+          id="new_quantity"
+          placeholder="Cantidad (mL)"
+          [(ngModel)]="new_ticket.quantity"
+        ></ion-input>
+      </ion-item>
+      <ion-button expand="full" [disabled]="!(new_ticket.quantity > 0)" (click)="request_ticket()">Solicitar</ion-button>
+    </ion-card-content>
+  </ion-card>
+  <ion-list>
+    <ion-list-header>
+      <h3><strong>Historial de Tickets:</strong></h3>
+    </ion-list-header>
+    <ion-item *ngFor="let ticket of my_tickets" (click)="scanQR(ticket)">
+      <ion-label class="ion-text-wrap">
+        <ion-text>
+          <p><strong>Código: </strong>{{ticket.code}}</p>
+          <p><strong>Cantidad: </strong>{{ticket.quantity}} (mL)</p>
+          <small>
+            <p><strong>Desde: </strong> {{ticket.start_time | date: 'MMM d, y, h:mm:ss a'}}</p>
+            <p><strong>Hasta: </strong> {{ticket.end_time | date: 'MMM d, y, h:mm:ss a'}}</p>
+          </small>
+          <p class="text-center">
+            <ion-badge color="success" *ngIf="ticket.attended">Atendido</ion-badge>
+            <ion-badge color="danger" *ngIf="!ticket.attended">No Atendido</ion-badge>
+          </p>
+        </ion-text>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

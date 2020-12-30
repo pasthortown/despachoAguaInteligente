@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  agua:
+    ipam:
+      config:
+        - subnet: 172.28.0.0/24
+
+services:
+  postgres:
+    image: postgres:latest
+    restart: always
+    ports:
+    - "5432:5432"
+    networks:
+      agua:
+        ipv4_address: 172.28.0.12
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
