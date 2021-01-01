@@ -6,10 +6,12 @@
     "type": "project",
     "require": {
         "php": "^7.2",
+        "barryvdh/laravel-dompdf": "^0.9.0",
         "firebase/php-jwt": "^5.0",
         "illuminate/mail": "^6.11",
         "laravel/lumen-framework": "^6.0",
-        "palanik/lumen-cors": "dev-master"
+        "palanik/lumen-cors": "dev-master",
+        "picqer/php-barcode-generator": "^2.1"
     },
     "require-dev": {
         "fzaninotto/faker": "^1.4",

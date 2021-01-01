@@ -1,0 +1,1 @@
+ng build --base-href "https://192.168.100.37/agua/" --prod

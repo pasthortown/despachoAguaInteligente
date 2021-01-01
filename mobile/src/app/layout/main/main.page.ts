@@ -42,6 +42,7 @@ export class MainPage implements OnInit {
    this.new_ticket.user_id = this.userData.id;
    this.ocupado = true;
    this.ticketDataService.post(this.new_ticket).then( r => {
+    this.new_ticket = new Ticket();
     this.ocupado = false;
     this.showToast('Ticket Generado','Se ha generado un ticket.', 'success');
    }).catch( e => {
@@ -52,7 +53,6 @@ export class MainPage implements OnInit {
 
   get_my_tickets() {
     if (!this.ocupado) {
-      this.new_ticket = new Ticket();
       this.ocupado = true;
       this.ticketDataService.get_my_tickets(this.userData.id).then( r => {
         this.my_tickets = r as Ticket[];
