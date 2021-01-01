@@ -20,7 +20,7 @@ export class AuthService {
     return this.http.post(environment.api_despachoaguainteligente + 'login', data, this.options)
     .then( r =>
       JSON.parse(r.data)
-    ).catch( error => { alert(JSON.stringify(error)); });
+    ).catch( error => { JSON.stringify(error); });
   }
   
   register(name: String, email: String): Promise<any> {
