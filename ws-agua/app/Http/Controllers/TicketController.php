@@ -63,12 +63,12 @@ class TicketController extends Controller
         $pdf_content .= '<img src="data:image/png;base64,'.$barcode.'"/><br/>'.$code;
         $pdf_content .= '</p>';
         $pdf_content .= '<p>';
-        $pdf_content .= 'Puede hacer uso de éste ticket en el período comprendido: <br/>';
-        $pdf_content .= '<strong>Desde:</strong> '.$desde;
+        $pdf_content .= 'Puede hacer uso de éste ticket en el período comprendido: <br/><br/>';
+        $pdf_content .= '<strong>Desde:</strong> '.$desde.'<br/>';
         $pdf_content .= '<strong>Hasta:</strong> '.$hasta;
         $pdf_content .= '</p>';
         $pdf_content .= '<p>';
-        $pdf_content .= 'Atentamente, <br/>';
+        $pdf_content .= '<br/>Atentamente, <br/>';
         $pdf_content .= '<strong>'.env('APP_NAME').'</strong>';
         $pdf_content .= '</p>';
         $pdf_content .= '</div>';
@@ -97,9 +97,9 @@ class TicketController extends Controller
         $html .= '   </head>';
         $html .= '   <body>';
         $html .= '      <img style="position:fixed; left:50px; top:150px;" src="data:image/png;base64,'.$barcode.'"/>';
-        $html .= '      <h4 style="position: fixed; left:75px; top:200px; font-family: Arial, Helvetica, sans-serif; text-align:left;">'. $title .'</h4>';
+        $html .= '      <h4 style="position: fixed; left:75px; top:230px; font-family: Arial, Helvetica, sans-serif; text-align:left;">'. $title .'</h4>';
         $html .= '      <header>';
-        $html .= '         <img style="position:fixed; left:0px; bottom:0px; top: 0px; width:1125px;" src="'.$this->get_background_image().'"/>';
+        $html .= '         <img style="position:fixed; left:0px; bottom:0px; top: 0px; width:1325px;" src="'.$this->get_background_image().'"/>';
         $html .= '         <h2 style="position: fixed; left:0px; right:0px; top:300px; font-family: Arial, Helvetica, sans-serif; text-align:center;">'. env('APP_NAME') .'</h2>';
         $html .= '      </header>';
         $html .= '      <footer>';
